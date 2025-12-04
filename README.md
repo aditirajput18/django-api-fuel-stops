@@ -4,19 +4,19 @@ This project is a Django-based API that returns an optimized driving route betwe
 
 The API determines:
 
-🗺 Optimal driving route using a free routing API (OSRM)
+ Optimal driving route using a free routing API (OSRM)
 
-⛽ Cheapest fuel stops within range
+ Cheapest fuel stops within range
 
-📍 Multiple stops if the vehicle cannot reach the destination on one tank
+ Multiple stops if the vehicle cannot reach the destination on one tank
 
-💵 Total estimated fuel cost
+ Total estimated fuel cost
 
-🖼 A static map preview of the route
+ A static map preview of the route
 
-📄 Optional UI view to visualize results
+ Optional UI view to visualize results
 
-🔧 Tech Stack
+## 🔧 Tech Stack
 
 Django 6
 
@@ -28,7 +28,7 @@ Fuel Data from local CSV file
 
 EC2 Ubuntu deployment
 
-✨ Features
+## ✨ Features
 ✔ 1. Routing (Start → Finish)
 
 The API calls OSRM Route API once:
@@ -36,9 +36,9 @@ The API calls OSRM Route API once:
 https://router.project-osrm.org/route/v1/driving/LON,LAT;LON,LAT
 
 
-This gives:
+### This gives:
 
-Total distance
+# 1. Total distance
 
 Geo-coordinates along the path
 
@@ -46,7 +46,7 @@ Route polyline
 
 Step-by-step path points
 
-✔ 2. Fuel Stop Calculation
+ # 2. Fuel Stop Calculation
 
 Assumptions given by assignment:
 
@@ -56,7 +56,7 @@ Fuel efficiency: 10 MPG
 
 Fuel data: Provided CSV file
 
-The API:
+### The API:
 
 Breaks the route into fuel-range segments
 
@@ -66,17 +66,17 @@ Chooses the cheapest station
 
 Saves it in the response
 
-✔ 3. Cost Calculation
+# 3. Cost Calculation
 Gallons = total_miles / 10
 Cost = gallons × fuel_price
 
-✔ 4. Static Map Image
+# 4. Static Map Image
 
 Generated using:
 
 https://staticmap.openstreetmap.de/staticmap.php?...markers=...
 
-📁 Project Structure
+## 📁 Project Structure
 routeproject/
 │── routeproject/
 │   ├── settings.py
@@ -94,14 +94,16 @@ routeproject/
 │
 └── manage.py
 
-🚀 How to Run
+## 🚀 How to Run
 1. Activate Virtual Env
+   
 source myenv/bin/activate
 
-2. Run Server
+2.  Run Server
+   
 python manage.py runserver 0.0.0.0:8000
 
-🔥 API Endpoints
+## 🔥 API Endpoints
 POST /api/route/
 
 Compute route + fuel stops.
@@ -134,7 +136,7 @@ Example Response
   "map_image_url": "https://staticmap.openstreetmap.de/..."
 }
 
-🎨 Optional Browser UI
+## 🎨 Optional Browser UI
 
 Available at:
 
@@ -143,7 +145,7 @@ Available at:
 
 Enter start and finish → See results nicely displayed.
 
-☁ Deployment Notes (EC2)
+## Deployment Notes (EC2)
 
 Install Python + virtualenv
 
@@ -157,7 +159,7 @@ Start server with:
 
 python manage.py runserver 0.0.0.0:8000
 
-🔐 GitHub Deployment (PAT Token)
+### 🔐 GitHub Deployment (PAT Token)
 
 Create Classic Token → repo scope, then:
 
@@ -175,7 +177,7 @@ Endpoint:
 
 /route/v1/driving/LON1,LAT1;LON2,LAT2?overview=full&geometries=geojson
 
-📝 Summary
+## 📝 Summary
 
 This assignment successfully demonstrates:
 
